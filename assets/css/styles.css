@@ -1,10 +1,18 @@
 @font-face {
-    font-family: ;
-    src: url();
+    font-family: Inter, sans-serif;
+    src: url("../fonts/Inter/Inter-VariableFont_opsz\,wght.ttf");
+}
+
+:root{
+    --dark-blue-300: hsl(213, 84%, 24%);
 }
 
 * {
 
+}
+
+body {
+    background-color: hsl(0, 0%, 90%);
 }
 
 #wrapper {
@@ -22,16 +30,57 @@
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
+
+    & > section 
+    {
+        width: 70vw;
+        & form {
+            padding: 10% 20%;
+        }
+    }
 }
 
 #result-area {
-
+    background-color: hsl(0, 0%, 95%);
+    width: 30vw;
+    border-radius: 32px;
 }
 
 .form-action {
 
-    & button {
+    position: absolute;
+    bottom: 5vw;
 
+    & button {
+        
+        color: var(--dark-blue-300);
+        background-color: hsl(214, 26%, 88%);
+        min-width: 280px;
+        padding: 24px;
+        border-radius: 24px;
+
+        &:first-child{
+            background-color: var(--dark-blue-300);
+            color: hsl(0, 0%, 95%);
+        }
     }
 }
 
+label[for=text] {
+    display: grid;
+    &::after {
+        content: attr(data-replicated-value) " ";
+        white-space: pre-wrap;
+        visibility: hidden;
+      }
+    &  > textarea {
+        resize: none;
+        overflow: hidden;
+    }  
+    & > textarea,
+    &::after {   
+        font: inherit;
+        grid-area: 1 / 1 / 2 / 2;
+    }
+}
+  

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encriptador de Texto | @qcmarcel</title>
+    <title>Text Encoder | @qcmarcel</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="assets/js/encode.js"></script>
     <script src="assets/js/decode.js"></script>
@@ -17,7 +17,7 @@
                 <form action="">
                     <fieldset>
                         <label for="text">
-                            <input type="text" id="text" name="_text">
+                            <textarea type="text" id="text" name="_text" placeholder="type the text here" translate="no" onInput="this.parentNode.dataset.replicatedValue = this.value"></textarea>
                         </label>
                     </fieldset>
                     <div class="form-action">
