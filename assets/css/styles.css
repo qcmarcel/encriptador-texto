@@ -8,7 +8,7 @@
 }
 
 * {
-
+    font-family: Inter, sans-serif;
 }
 
 body {
@@ -36,6 +36,11 @@ body {
         width: 70vw;
         & form {
             padding: 10% 20%;
+
+            & textarea, & fieldset {
+                background-color: transparent;
+                border: none;
+            }
         }
     }
 }
@@ -47,17 +52,16 @@ body {
 }
 
 .form-action {
-
     position: absolute;
     bottom: 5vw;
 
-    & button {
-        
+    & button {        
         color: var(--dark-blue-300);
         background-color: hsl(214, 26%, 88%);
         min-width: 280px;
         padding: 24px;
         border-radius: 24px;
+        border: none;
 
         &:first-child{
             background-color: var(--dark-blue-300);
@@ -68,15 +72,18 @@ body {
 
 label[for=text] {
     display: grid;
+
     &::after {
         content: attr(data-replicated-value) " ";
         white-space: pre-wrap;
         visibility: hidden;
-      }
+    }
+
     &  > textarea {
         resize: none;
         overflow: hidden;
     }  
+
     & > textarea,
     &::after {   
         font: inherit;
@@ -84,9 +91,7 @@ label[for=text] {
     }
 }
   
-footer {
-    
+footer {    
     position: absolute;
     bottom: 5px;
-
 }
