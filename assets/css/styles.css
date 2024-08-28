@@ -1,0 +1,37 @@
+@font-face {
+    font-family: ;
+    src: url();
+}
+
+* {
+
+}
+
+#wrapper {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#main {
+    display: inline-flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+#result-area {
+
+}
+
+.form-action {
+
+    & button {
+
+    }
+}
+
