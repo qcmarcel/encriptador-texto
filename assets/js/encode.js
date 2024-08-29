@@ -15,7 +15,7 @@ if (location.search.length > 1) {
 } 
 
 function encoder(text) {
-    const cypher = (callback, s=';', o=':', trim=false, file='../../res/alura.txt') => {
+    const cypher = (callback, s=';', o=':', trim=false, file='../res/alura.txt') => {
         fetch(file, { mode: 'no-cors' })
             .then(response => response.text())
             .then(data => {console.log(data); callback(data,s,o,trim)})
