@@ -22,11 +22,11 @@ function encoder(text) {
             .catch(error => console.error(error))
     } 
     cypher((data,separator,operator,trim)=>{
-        data= data.split(separator);
+        data = data.split(separator);
         const data_parser = {}
-        query.forEach(q => {
-            const delimiter = q.indexOf(operator)
-            data_parser[q.substring(0, delimiter)] = q.substring(delimiter+1)
+        data.forEach(v => {
+            const delimiter = v.indexOf(operator)
+            data_parser[v.substring(0, delimiter)] = v.substring(delimiter+1)
         });
         print([...text].map(ch=>{
             data_parser[ch] ?? ch
