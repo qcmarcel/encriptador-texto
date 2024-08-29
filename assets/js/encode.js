@@ -33,7 +33,7 @@ function encoder(text) {
 }
 
 function print(text, selector='#result-area'){ 
-    const p = document.createElement(p)
+    const p = document.createElement('p')
     p.innerText=text
     document.querySelector(selector).appendChild(p)
 }
