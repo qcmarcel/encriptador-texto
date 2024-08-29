@@ -17,7 +17,7 @@ function encoder(text) {
     const cypher = (callback, trim=false, s=';', o=':', file='./res/alura.txt') => {
         fetch(file, { mode: 'no-cors' })
             .then(response => response.text())
-            .then(data => {console.log(data); callback(data,s,o,trim)})
+            .then(data => {console.debug(data); callback(data,s,o,trim)})
             .catch(error => console.error(error))
     } 
     cypher((data,trim,separator,operator)=>{
@@ -36,7 +36,8 @@ function encoder(text) {
 function print(text, selector='#result-area'){ 
     const p = document.createElement('p')
     p.innerText=text
-    document.querySelector(selector).appendChild(p)
+    document.addEventListener('DOMContentLoaded',()=>
+        document.querySelector(selector).appendChild(p))
 }
 
 function print_arr(text_split, selector='#result-area'){ 
