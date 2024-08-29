@@ -5,7 +5,6 @@ if (location.search.length > 1) {
         const operator = q.indexOf('=')
         query_values[q.substring(0, operator)] = q.substring(operator+1)
     })
-    console.debug(query_values)
     if (Object.keys(query_values).length > 0) {
         const text = query_values['_text'] ?? false        
         if (text && text.length > 0) {
@@ -15,7 +14,7 @@ if (location.search.length > 1) {
 } 
 
 function encoder(text) {
-    const cypher = (callback, s=';', o=':', trim=false, file='./res/alura.txt') => {
+    const cypher = (callback, trim=false, s=';', o=':', file='./res/alura.txt') => {
         fetch(file, { mode: 'no-cors' })
             .then(response => response.text())
             .then(data => {console.log(data); callback(data,s,o,trim)})
@@ -27,7 +26,7 @@ function encoder(text) {
         data.forEach(v => {
             const delimiter = v.indexOf(operator)
             data_parser[v.substring(0, delimiter)] = v.substring(delimiter+1)
-        });
+        },true);
         print_arr([...text].map(ch=> data_parser[ch] ?? ch ))
     })
 }
@@ -39,6 +38,5 @@ function print(text, selector='#result-area'){
 }
 
 function print_arr(text_split, selector='#result-area'){ 
-    console.debug(text_split)
     print(text_split.join(),selector)
 }
