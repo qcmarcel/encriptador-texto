@@ -18,7 +18,7 @@ function encoder(text) {
     const cypher = (callback, s=';', o=':', trim=false, file='../../alura.txt') => {
         fetch(file, { mode: 'no-cors' })
             .then(response => response.text())
-            .then(data => console.log(data), callback(data,s,o,trim))
+            .then(data => {console.log(data); callback(data,s,o,trim)})
             .catch(error => console.error(error))
     } 
     cypher((data,separator,operator,trim)=>{
