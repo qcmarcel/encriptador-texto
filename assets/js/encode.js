@@ -45,7 +45,7 @@ function print(text, selector='#result-area'){
 }
 
 function print_arr(text_split, selector='#result-area'){ 
-    print(text_split.join(),selector)
+    print(text_split.join(''),selector)
 }
 
 
