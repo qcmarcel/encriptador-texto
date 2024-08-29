@@ -4,7 +4,7 @@ function apply(){
         const query_values = {}
         query.forEach(q => {
             const operator = q.indexOf('=')
-            query_values[q.substring(0, operator)] = q.substring(operator+1)
+            query_values[q.substring(0, operator)] = q.substring(operator+1).replaceAll('+', ' ')
         })
         if (Object.keys(query_values).length > 0) {
             const text = query_values['_text'] ?? false        
