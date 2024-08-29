@@ -20,8 +20,10 @@ function encoder(text) {
             .then(data => {console.log(data); callback(data,s,o,trim)})
             .catch(error => console.error(error))
     } 
-    cypher((data,separator,operator,trim)=>{
-        data = data.split(separator);
+    cypher((data,trim,separator,operator)=>{
+        data = data.replace('\r\n','')
+        if (trim) {data = data.replaceAll(' ','')}
+        data = data.split(separator)
         const data_parser = {}
         data.forEach(v => {
             const delimiter = v.indexOf(operator)
