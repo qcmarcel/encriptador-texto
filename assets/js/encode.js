@@ -28,7 +28,7 @@ function encoder(text) {
             const delimiter = v.indexOf(operator)
             data_parser[v.substring(0, delimiter)] = v.substring(delimiter+1)
         });
-        print([...text].map(ch=> data_parser[ch] ?? ch ))
+        print_arr([...text].map(ch=> data_parser[ch] ?? ch ))
     })
 }
 
@@ -38,7 +38,7 @@ function print(text, selector='#result-area'){
     document.querySelector(selector).appendChild(p)
 }
 
-function print(text_split, selector='#result-area'){ 
+function print_arr(text_split, selector='#result-area'){ 
     console.debug(text_split)
-    print(text_split.join())
+    print(text_split.join(),selector)
 }
