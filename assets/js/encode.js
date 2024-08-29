@@ -6,7 +6,7 @@ if (location.search.length > 1) {
         query_values[q.substring(0, operator)] = q.substring(operator+1)
     })
     console.debug(query_values)
-    if (query_values.length > 0) {
+    if (Object.keys(query_values).length > 0) {
         const text = query_values['_text'] ?? false        
         if (text && text.length > 0) {
             encoder(text)
