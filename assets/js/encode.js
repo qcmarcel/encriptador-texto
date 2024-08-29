@@ -30,9 +30,9 @@ function encoder(text) {
         data.forEach(v => {
             const delimiter = v.indexOf(operator)
             data_parser[v.substring(0, delimiter)] = v.substring(delimiter+1)
-        },true);
+        });
         print_arr([...text].map(ch=> data_parser[ch] ?? ch ))
-    })
+    },true)
 }
 
 function print(text, selector='#result-area'){ 
