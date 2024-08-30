@@ -19,7 +19,9 @@ function apply(selector='#text'){
             const operator = q.indexOf('=')
             query_values[q.substring(0, operator)] = decodeURI(q.substring(operator+1))
         })
-        if (Object.keys(query_values).length > 0) {
+        const has_query_values = Object.keys(query_values).length > 0
+        const mode = query_values['mode'] ?? false
+        if (has_query_values && mode !== 'decode') {
             text = query_values['_text'] ?? false 
         } 
     } 
@@ -43,7 +45,7 @@ function encoder(text) {
         data.forEach(v => {
             const delimiter = v.indexOf(operator)
             data_parser[v.substring(0, delimiter)] = v.substring(delimiter+1)
-        });
+        })
         print_arr([...text].map(ch=> data_parser[ch] ?? ch ))
     },true)
 }

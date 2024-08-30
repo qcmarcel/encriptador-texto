@@ -20,7 +20,8 @@ function dispatch(selector='#text'){
             query_values[q.substring(0, operator)] = decodeURI(q.substring(operator+1))
         })
         const has_query_values = Object.keys(query_values).length > 0
-        if (has_query_values && (query_values['mode'] ?? false) === 'decode') {
+        const mode = query_values['mode'] ?? false
+        if (has_query_values && mode === 'decode') {
             text = query_values['_text'] ?? false
         } 
     } 
