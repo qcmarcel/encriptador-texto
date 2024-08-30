@@ -47,7 +47,10 @@ body {
 
 #result-area {
     background-color: hsl(0, 0%, 95%);
-    width: 30vw;
+    min-width: 20vw;
+    max-width: 25vw;
+    min-height: 40vh;
+    max-height: 500px;
     border-radius: 32px;
 }
 
