@@ -17,23 +17,31 @@ function clear(input) {
 
 function dispatch(query=true, selector='#text'){
     let text = document.querySelector(selector)?.value ?? false
-    if (query && location.search.length > 1) {
-        const query = location.search.substring(1).split('&')
-        const query_values = {}
-        query.forEach(q => {
-            const operator = q.indexOf('=')
-            query_values[q.substring(0, operator)] = decodeURI(q.substring(operator+1))
-        })
-        const has_query_values = Object.keys(query_values).length > 0
-        const mode = query_values['mode'] ?? false
-        if (has_query_values && mode === 'decode') {
-            text = query_values['_text'] ?? false
-        } 
+    if (query) {
+        text = textQuery(text) 
     } 
     if (text && text.length > 0) {
         decoder(text)
     }
     return selector
+}
+
+function textQuery(text) {
+    if (location.search.length <= 0){
+        return text
+    }
+    const query = location.search.substring(1).split('&')
+    const query_values = {}
+    query.forEach(q => {
+        const operator = q.indexOf('=')
+        query_values[q.substring(0, operator)] = decodeURI(q.substring(operator + 1))
+    })
+    const has_query_values = Object.keys(query_values).length > 0
+    const mode = query_values['mode'] ?? false
+    if (has_query_values && mode === 'decode') {
+        text = query_values['_text'] ?? false
+    }
+    return text
 }
 
 function decoder(text) {
