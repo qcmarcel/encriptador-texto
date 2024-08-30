@@ -1,4 +1,4 @@
-function set(){
+function load(){
     document.querySelectorAll('button,a').forEach(e => {
         if (e.innerText.toLowerCase().indexOf('decode') > -1){
             console.debug('decode?:', e)
@@ -66,6 +66,6 @@ function print_arr(text_split, selector='#result-area'){
 
 document.addEventListener('DOMContentLoaded',()=>{
     console.debug('... decode ...')
-    set() 
+    load() 
     dispatch()
 })
