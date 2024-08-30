@@ -42,7 +42,7 @@ function decoder(text) {
         data.forEach(v => {
             const delimiter = v.indexOf(operator)
             data_parser[v.substring(delimiter+1)] = v.substring(0, delimiter)
-        });
+        })
         print(Object.entries(data_parser).forEach(([k,v])=>b = b.replaceAll(k,v)))
     },true)
 }
@@ -62,5 +62,6 @@ function print_arr(text_split, selector='#result-area'){
 
 
 document.addEventListener('DOMContentLoaded',()=>{
+    console.debug('... decode ...')
     set() 
 })

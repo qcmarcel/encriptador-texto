@@ -50,5 +50,6 @@ function print_arr(text_split, selector='#result-area'){
 
 
 document.addEventListener('DOMContentLoaded',()=>{
-        apply() 
+    console.debug('... encode ...')
+    apply() 
 })
