@@ -43,7 +43,7 @@ function decoder(text) {
             const delimiter = v.indexOf(operator)
             data_parser[v.substring(delimiter+1)] = v.substring(0, delimiter)
         })
-        print(Object.entries(data_parser).forEach(([k,v])=>b = b.replaceAll(k,v)))
+        print(Object.entries(data_parser).forEach(([k,v])=>text = text.replaceAll(k,v)))
     },true)
 }
 
