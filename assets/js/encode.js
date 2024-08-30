@@ -1,4 +1,17 @@
-function apply(){
+function set(){
+    document.querySelectorAll('button,a').forEach(e => {
+        if (e.innerText.toLowerCase().indexOf('encode') > -1){
+            console.debug('encode?:', e)
+            e.addEventListener('click' , (e)=> {
+                e.preventDefault()
+                apply()
+            })
+        }
+    })
+}
+
+function apply(selector='#text'){    
+    let text = document.querySelector(selector)?.value ?? false
     if (location.search.length > 1) {
         const query = location.search.substring(1).split('&')
         const query_values = {}
@@ -7,12 +20,12 @@ function apply(){
             query_values[q.substring(0, operator)] = decodeURI(q.substring(operator+1))
         })
         if (Object.keys(query_values).length > 0) {
-            const text = query_values['_text'] ?? false        
-            if (text && text.length > 0) {
-                encoder(text)
-            }
+            text = query_values['_text'] ?? false 
         } 
     } 
+    if (text && text.length > 0) {
+        encoder(text)
+    }
 }
 
 function encoder(text) {

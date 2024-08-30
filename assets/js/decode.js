@@ -1,7 +1,7 @@
 function set(){
     document.querySelectorAll('button,a').forEach(e => {
         if (e.innerText.toLowerCase().indexOf('decode') > -1){
-            console.debug(e)
+            console.debug('decode?:', e)
             e.addEventListener('click' , (e)=> {
                 e.preventDefault()
                 dispatch()
@@ -10,7 +10,8 @@ function set(){
     })
 }
 
-function dispatch(){
+function dispatch(selector='#text'){
+    let text = document.querySelector(selector)?.value ?? false
     if (location.search.length > 1) {
         const query = location.search.substring(1).split('&')
         const query_values = {}
@@ -19,12 +20,12 @@ function dispatch(){
             query_values[q.substring(0, operator)] = decodeURI(q.substring(operator+1))
         })
         if (Object.keys(query_values).length > 0) {
-            const text = query_values['_text'] ?? false        
-            if (text && text.length > 0) {
-                decoder(text)
-            }
+            text = query_values['_text'] ?? false
         } 
     } 
+    if (text && text.length > 0) {
+        decoder(text)
+    }
 }
 
 function decoder(text) {
@@ -65,4 +66,5 @@ function print_arr(text_split, selector='#result-area'){
 document.addEventListener('DOMContentLoaded',()=>{
     console.debug('... decode ...')
     set() 
+    dispatch()
 })
