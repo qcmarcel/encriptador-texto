@@ -26,7 +26,7 @@ function apply(){
     } 
 }
 
-function encoder(text) {
+function decoder(text) {
     const cypher = (callback, trim=false, s=';', o=':', file='./res/alura.txt') => {
         fetch(file, { mode: 'no-cors' })
             .then(response => response.text())
