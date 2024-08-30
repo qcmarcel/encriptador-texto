@@ -39,7 +39,9 @@ function textQuery(text) {
     })
     const has_query_values = Object.keys(query_values).length > 0
     const mode = query_values['mode'] ?? false
-    if (has_query_values && (!mode || mode !== 'decode')) {
+    const is_encode = !mode || mode !== 'decode'
+    console.debug('is_encode:', is_encode, query_values)
+    if (has_query_values && is_encode) {
         text = query_values['_text'] ?? false
     }
     return text
