@@ -18,7 +18,7 @@ function clear(input) {
 function dispatch(query=true, selector='#text'){
     let text = document.querySelector(selector)?.value ?? false
     if (query) {
-        text = textQuery(text) 
+        text = getTextQuery(text) 
     } 
     if (text && text.length > 0) {
         decoder(text)
@@ -26,7 +26,7 @@ function dispatch(query=true, selector='#text'){
     return selector
 }
 
-function textQuery(text) {
+function getTextQuery(text) {
     if (location.search.length <= 0){
         console.debug("dispatch textQuery empty")
         return text

@@ -76,7 +76,6 @@ function print(text, selector='#result-area'){
     p.innerText=text
     if (document.querySelector(selector) != null)
         document.querySelector(selector).appendChild(p)
-
     else
         console.debug(p)
 }
