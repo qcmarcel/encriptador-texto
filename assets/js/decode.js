@@ -42,7 +42,7 @@ function decoder(text) {
             const delimiter = v.indexOf(operator)
             data_parser[v.substring(delimiter+1)] = v.substring(0, delimiter)
         });
-        console.debug(data_parser)
+        print(Object.entries(data_parser).forEach(([k,v])=>b = b.replaceAll(k,v)))
     },true)
 }
 
