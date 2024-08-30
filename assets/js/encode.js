@@ -30,6 +30,7 @@ function textQuery(text) {
     if (location.search.length <= 0){
         return text
     }
+    text=false
     const query = location.search.substring(1).split('&')
     const query_values = {}
     query.forEach(q => {
