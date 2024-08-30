@@ -39,7 +39,7 @@ function textQuery(text) {
     })
     const has_query_values = Object.keys(query_values).length > 0
     const mode = query_values['mode'] ?? false
-    if (has_query_values && mode !== 'decode') {
+    if (has_query_values && (!mode || mode !== 'decode')) {
         text = query_values['_text'] ?? false
     }
     return text
