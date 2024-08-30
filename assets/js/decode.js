@@ -1,15 +1,16 @@
 function set(){
     document.querySelectorAll('button,a').forEach(e => {
         if (e.innerText.toLowerCase().indexOf('decode') > -1){
+            console.debug(e)
             e.addEventListener('click' , (e)=> {
                 e.preventDefault()
-                apply()
+                dispatch()
             })
         }
     })
 }
 
-function apply(){
+function dispatch(){
     if (location.search.length > 1) {
         const query = location.search.substring(1).split('&')
         const query_values = {}
