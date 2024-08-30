@@ -28,6 +28,7 @@ function dispatch(query=true, selector='#text'){
 
 function textQuery(text) {
     if (location.search.length <= 0){
+        console.debug("dispatch textQuery empty")
         return text
     }
     const query = location.search.substring(1).split('&')

@@ -28,7 +28,8 @@ function apply(query=true, selector='#text'){
 }
 
 function textQuery(text) {
-    if (location.search.length <= 0){
+    if (location.search.length <= 0){        
+        console.debug("apply textQuery empty")
         return text
     }
     const query = location.search.substring(1).split('&')
