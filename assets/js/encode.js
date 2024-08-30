@@ -20,6 +20,7 @@ function apply(query=true, selector='#text'){
     if (query) {
         text = textQuery(text) 
     } 
+    console.debug('text:', text)
     if (text && text.length > 0) {
         encoder(text)
     }
@@ -30,7 +31,6 @@ function textQuery(text) {
     if (location.search.length <= 0){
         return text
     }
-    text=false
     const query = location.search.substring(1).split('&')
     const query_values = {}
     query.forEach(q => {
@@ -41,8 +41,11 @@ function textQuery(text) {
     const mode = query_values['mode'] ?? false
     const is_encode = !mode || mode !== 'decode'
     console.debug('is_encode:', is_encode, query_values)
-    if (has_query_values && is_encode) {
+    if (has_query_values) {
         text = query_values['_text'] ?? false
+        if (!is_encode) {            
+            text=false
+        }
     }
     return text
 }

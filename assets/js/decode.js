@@ -30,7 +30,6 @@ function textQuery(text) {
     if (location.search.length <= 0){
         return text
     }
-    text=false
     const query = location.search.substring(1).split('&')
     const query_values = {}
     query.forEach(q => {
@@ -39,8 +38,11 @@ function textQuery(text) {
     })
     const has_query_values = Object.keys(query_values).length > 0
     const mode = query_values['mode'] ?? false
-    if (has_query_values && mode === 'decode') {
+    if (has_query_values) {
         text = query_values['_text'] ?? false
+        if (mode !== 'decode') {
+            text=false
+        }
     }
     return text
 }
