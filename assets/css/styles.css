@@ -39,6 +39,7 @@ body {
             & textarea, & fieldset {
                 background-color: transparent;
                 border: none;
+                max-width: 45vw;
             }
         }
     }
