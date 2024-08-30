@@ -4,16 +4,20 @@ function load(){
             console.debug('decode?:', e)
             e.addEventListener('click' , (e)=> {
                 e.preventDefault()
-                const input = document.querySelector(dispatch())
-                if (input != null) input.value="" 
+                const input = document.querySelector(dispatch(false))
+                clear(input) 
             })
         }
     })
 }
 
-function dispatch(selector='#text'){
+function clear(input) {
+    if (input != null) input.value = ""
+}
+
+function dispatch(query=true, selector='#text'){
     let text = document.querySelector(selector)?.value ?? false
-    if (location.search.length > 1) {
+    if (query && location.search.length > 1) {
         const query = location.search.substring(1).split('&')
         const query_values = {}
         query.forEach(q => {
