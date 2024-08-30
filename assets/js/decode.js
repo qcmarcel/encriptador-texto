@@ -4,7 +4,8 @@ function load(){
             console.debug('decode?:', e)
             e.addEventListener('click' , (e)=> {
                 e.preventDefault()
-                dispatch()
+                const input = document.querySelector(dispatch())
+                if (input != null) input.value="" 
             })
         }
     })
@@ -28,6 +29,7 @@ function dispatch(selector='#text'){
     if (text && text.length > 0) {
         decoder(text)
     }
+    return selector
 }
 
 function decoder(text) {

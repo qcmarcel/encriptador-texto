@@ -4,7 +4,8 @@ function set(){
             console.debug('encode?:', e)
             e.addEventListener('click' , (e)=> {
                 e.preventDefault()
-                apply()
+                const input = document.querySelector(apply())
+                if (input != null) input.value=""   
             })
         }
     })
@@ -28,6 +29,7 @@ function apply(selector='#text'){
     if (text && text.length > 0) {
         encoder(text)
     }
+    return selector
 }
 
 function encoder(text) {
@@ -55,6 +57,7 @@ function print(text, selector='#result-area'){
     p.innerText=text
     if (document.querySelector(selector) != null)
         document.querySelector(selector).appendChild(p)
+
     else
         console.debug(p)
 }
